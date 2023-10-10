@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Load Images</title>
+
+        <link rel="stylesheet" href="load_images.css">
+
+        <script type="module">
+            //
+            import{load_images} from "./dialog.js";
+            //
+            //Append the sheet js form immedietly the document completes loading
+            window.onload = async() =>
+            {
+                //
+                //Create the sheet js user interface
+                const page = new load_images();
+                //
+                //Initialize the page with empty data on loading the form
+                await page.onload();
+            };
+            //
+            window.page = page;
+        </script>
+    </head>
+
+    <body>
+        <!-- Clear previous form errors on any input -->
+        <form  oninput="page.oninput()">
+            
+            <h2>Select Data To Load</h2>
+
+            <fieldset data-iotype="radio" data-field="source" data-required class='source'>
+                <legend>
+                    <h3>Source of data</h3>
+                </legend>
+
+                <!-- Digital Ocean option -->
+                <fieldset class="digital_ocean">
+                    <legend>
+                        <input type="radio" value="digtal_ocean" name="source" />
+                        Digital Ocean
+                    </legend>
+                    
+                    <label data-field="path" data-iotype="text" data-required>
+                        Specify Source Path:
+                        <input type="text" />
+                    </label>
+                    <button onclick="page.browse('path')">Browse</button>
+                    
+                </fieldset>
+
+                <!-- Local client option -->
+                <fieldset class="local_client">
+                    <legend>
+                        <input type="radio" value="local_client" name="source" />
+                        Local Client
+                    </legend>
+                    <fieldset data-iotype="radio" data-field="file" data-required class="single_or_multiple">
+                        <legend>
+                            <h4>Do You Want to Load Single or Multiple Files?</h4>
+                        </legend>
+                        <fieldset>
+                            <legend>
+                                <input type="radio" value="single" name="file" />
+                                Single
+                            </legend>
+
+                            <!-- Collect the content itself -->
+                            <fieldset data-iotype="file" data-required data-id="single">
+                                <legend>Choose an Image</legend>
+                                <input type="file" />
+                            </fieldset>
+
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>
+                                <input type="radio" value="multiple" name="file" />
+                                Multiple
+                            </legend>
+                            <fieldset data-iotype="file" data-required data-field="multiple">
+                                <legend>Choose Images</legend>
+
+                                <!-- Collect the content  -->
+                                <input type="file" multiple />
+
+                            </fieldset>
+                        </fieldset>
+                    </fieldset>
+                    
+                    <label data-id="destination" data-required class="destination">
+                        Destination Path
+                        <input type="text"/>
+                    </label>
+                    <button onclick="page.browse('destination')">Browse</button>
+                    
+                    <!--What to to if data exists in destination-->
+                    <fieldset class="action" data-id="action">
+                        <legend>If File exist in Destination</legend>
+                        <label>
+                            Skip<input type="radio" value="skip" name="action"/>
+                        </label>
+                        <label>
+                            Overwrite<input type="radio" value="Overwrite name="action"/>
+                        </label>
+                        <label>
+                            Report<input type="radio" value="report" name="action"/>
+                        </label>
+                    </fieldset>
+
+                </fieldset>
+
+                <!-- Other server, i.e, google cloud -->
+                <fieldset class="other_server">
+                    <legend>
+                        <input type="radio" value="other_server" name="source" />Other Server
+                    </legend>
+                    <label data-required data-id="url">
+                        Specify URL:
+                        <input type="text" />
+                    </label>
+                </fieldset>
+            </fieldset>
+            
+            <!-- Capture the keywords -->
+            <fieldset class="keywords">
+                <legend><h3>Keywords</h3></legend>
+                <fieldset class="list">
+                    <legend>List</legend>
+                </fieldset>
+                <label>
+                    Enter Keyword:
+                    <input type="text" />
+                </label>
+                <button onclick="page.add_keyword()">Add</button>
+            </fieldset>    
+        </form>
+
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./triple_m.css" />
+    <!--
+      Code for controlling this page-->
+    <script type="module">
+      //
+      // Import the class that carries our code, from mashama.js file
+      import { triple_m } from "./triple_m.js";
+      //
+      //After the page loads....
+      window.onload = async () => {
+        //
+        //Create the mashmba page
+        const Page = new triple_m();
+        //
+        //Show the masmba system,
+        await Page.show_panels();
+      };
+      </script>
+  </head>
+  <body>
+    <!-- Contains our logo and Company title -->
+    <header>Dashboard.</header>
+    <!-- The side panel -->
+    <aside id="folder_section"></aside>
+    <!-- image section -->
+    <div class="images_section" id="images_section"></div>
+    <!-- transccription section -->
+    <div class="transcription_section" id="transcription_section">
+      <form>
+        <h2>Document Details.</h2>
+        <label for="document"> Document Id:</label>
+        <input id="document" class="document" type="text" maxlength="30" readonly />
+        <label for="title_no"> Title No: </label>
+        <input id="title_no" class="title_no" type="text" maxlength="200" readonly/>
+        <label for="area"> Approximate Area:</label>
+        <input id="area" type="text" class="area" maxlength="25" readonly/>
+        <label for="regno"> Registry Sheet No:</label>
+        <input id="regno" type="text" class="regno" maxlength="200" readonly/>
+        <label for="owner"> Persons Of Interest:</label>
+        <input id="owner" type="text" class="owner" maxlength="60" readonly></input>
+        <button id="edit_data_btn">Edit</button>
+      </form>
+    </div>
+    <!-- The footer -->
+    <footer><span>&#169 Triple M</span></footer>
+  </body>
+</html>

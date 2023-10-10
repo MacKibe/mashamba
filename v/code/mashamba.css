@@ -1,0 +1,151 @@
+* {
+  /* border box will help in making all the elements stay in the parent element without overflowing */
+  box-sizing: border-box;
+  /* resetting the page margin and padding 0 */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  /*background-color: #bcd3f2;*/
+  min-height: 100dvh;
+  grid-template-columns: 35% 65%;
+  grid-template-rows: 10% 40% 50%;
+  grid-template-areas:
+    "main header"
+    "main transcribe"
+    "main other_pages";
+}
+
+.first_page {
+  display: grid;
+  grid-area: main;
+  /*background-color: rgba(176, 176, 176, 0.763);*/
+  border: 1px solid #000;
+  width: 100%;
+}
+
+.first_page img {
+  width: 100%;
+  margin: auto;
+}
+
+header {
+  display: flex;
+  grid-area: header;
+  justify-content: space-between;
+  max-height: 100%;
+  padding: 1% 0.5%;
+  background-color: #e6e1c5;
+}
+
+fieldset legend {
+  text-align: center;
+}
+
+fieldset {
+  display: flex;
+  justify-content: space-around;
+  border: 0;
+}
+
+fieldset:nth-of-type(1) {
+  flex-basis: 30%;
+}
+
+fieldset:nth-of-type(2) {
+  flex-basis: 30%;
+}
+
+fieldset button {
+  width: 50%;
+  max-height: 80%;
+}
+
+button img {
+  max-width: 20%;
+}
+
+.transcribe {
+  grid-area: transcribe;
+  font-size: 130%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.transcribe ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10%;
+  justify-content: center;
+}
+
+.transcribe ul li {
+  width: 35%;
+}
+
+.transcribe .document {
+  background: none;
+}
+
+.transcribe input,
+textarea {
+  font-size: 110%;
+  width: 100%;
+  gap: 2%;
+}
+
+.transcribe li {
+  list-style: none;
+  margin-block-start: 3%;
+}
+
+.transcribe label {
+  display: block;
+  font-weight: bolder;
+}
+
+.transcribe button {
+  width: 20%;
+}
+
+.other_pages {
+  display: flex;
+  z-index: 10;
+  justify-content: space-evenly;
+  overflow-x: scroll;
+  gap: 2%;
+  grid-area: other_pages;
+  background-color: #d4cb92;
+  border: 1px solid #000;
+}
+
+.other_pages img {
+  width: 25%;
+  margin: auto 0;
+}
+
+@media (max-width: 830px) {
+  body {
+    display: block;
+  }
+
+  .first_page img {
+    padding: 2%;
+  }
+
+  .transcribe ul {
+    columns: 1;
+  }
+
+  .other_pages {
+    grid-area: other_pages;
+  }
+
+  .other_pages img {
+    padding: 2% 0;
+  }
+}

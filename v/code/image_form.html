@@ -1,0 +1,80 @@
+<form>
+  <h2><u>Select Data To Load</u></h2>
+
+  <fieldset data-iotype="radio" id="source" data-required="true">
+    <legend>
+      <h2>Source of data</h2>
+    </legend>
+
+    <!-- Digital ocean option -->
+    <fieldset>
+      <legend>
+        <input type="radio" value="digtal ocean" name="source" />
+        Digital Ocean
+      </legend>
+      <label id="path" data-iotype="text" data-required="true">
+        Specify Path:
+        <input type="text" />
+        <span class="required">*</span>
+        <span class="error"></span>
+      </label>
+
+      <!-- Server file explorer of some sort -->
+      <input type="button" value="Browse" />
+    </fieldset>
+
+    <!-- Local client option -->
+    <fieldset>
+      <legend>
+        <input type="radio" value="local client" name="source" />
+        Local Client
+      </legend>
+      <fieldset data-iotype="radio" id="file" data-required="true">
+        <legend>
+          <h3>Do You Want to Load Single or Multiple Files?</h3>
+          <span class="required">*</span>
+        </legend>
+        <fieldset>
+          <legend>
+            <input type="radio" value="single" name="file" />
+            Single
+          </legend>
+
+          <!-- Collect the content itself -->
+          <fieldset data-iotype="file" data-required="true" id="single">
+            <legend>Choose an Image</legend>
+            <input type="file" />
+          </fieldset>
+
+          <!-- Collect the metadata on the image at this poit -->
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            <input type="radio" value="multiple" name="file" />
+            Multiple
+          </legend>
+          <fieldset data-iotype="file" data-required="true" id="multiple">
+            <legend>Choose Images</legend>
+
+            <!-- Collect the content  -->
+            <input type="file" multiple />
+
+            <!-- Collect the metadata of the multiple selections??????? -->
+          </fieldset>
+        </fieldset>
+      </fieldset>
+    </fieldset>
+
+    <!-- Other server, i.e, google cloud -->
+    <fieldset>
+      <legend>
+        <input type="radio" value="other server" name="source" />Other Server
+      </legend>
+      <label data-iotype="text" data-required="true" id="url">
+        Specify URL:
+        <input type="text" />
+      </label>
+    </fieldset>
+  </fieldset>
+</form>
