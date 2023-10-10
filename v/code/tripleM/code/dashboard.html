@@ -19,7 +19,7 @@
         const Page = new triple_m();
         //
         //Show the masmba system,
-        await Page.show_panels();
+        await Page.load_documents();
       };
       </script>
   </head>
@@ -27,24 +27,118 @@
     <!-- Contains our logo and Company title -->
     <header>Dashboard.</header>
     <!-- The side panel -->
-    <aside id="folder_section"></aside>
+    <aside id="documents_section">
+      <form>
+        <label>
+          Search:
+          <input type="text">
+        </label>
+        <fieldset>
+          <legend>Choose type of document</legend>
+          <label>
+            <input type="radio" name="category">
+            Mutations
+          </label>
+          <label>
+            <input type="radio" name="category">
+            Title Deed
+          </label>
+          <label>
+            <input type="radio" name="category">
+            Cert of Title
+          </label>
+          <label>
+            <input type="radio" name="category">
+            Others
+          </label>
+        </fieldset>
+      </form>
+      <div class="doc_list">
+        <h2>Documents</h2>
+        <ul>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+        </ul>
+      </div>
+    </aside>
     <!-- image section -->
-    <div class="images_section" id="images_section"></div>
+    <div class="images_section" id="images_section">
+      <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
+      <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
+      <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
+      <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
+      <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
+      <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
+      <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
+      <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
+      <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
+    </div>
     <!-- transccription section -->
     <div class="transcription_section" id="transcription_section">
       <form>
         <h2>Document Details.</h2>
-        <label for="document"> Document Id:</label>
-        <input id="document" class="document" type="text" maxlength="30" readonly />
-        <label for="title_no"> Title No: </label>
-        <input id="title_no" class="title_no" type="text" maxlength="200" readonly/>
-        <label for="area"> Approximate Area:</label>
-        <input id="area" type="text" class="area" maxlength="25" readonly/>
-        <label for="regno"> Registry Sheet No:</label>
-        <input id="regno" type="text" class="regno" maxlength="200" readonly/>
-        <label for="owner"> Persons Of Interest:</label>
-        <input id="owner" type="text" class="owner" maxlength="60" readonly></input>
-        <button id="edit_data_btn">Edit</button>
+        <label > 
+          Document Id:
+          <input class="document" type="text" maxlength="30" readonly />
+        </label>
+        <label> 
+          Title No: 
+          <input class="title_no" type="text" maxlength="200" readonly/>
+        </label>
+        <label> 
+          Approximate Area:
+          <input type="text" class="area" maxlength="25" readonly/>
+        </label>
+        <label> 
+          Registry Sheet No:
+          <input type="text" class="regno" maxlength="200" readonly/>
+        </label>
+        <label> 
+          Persons Of Interest:
+          <input type="text" class="owner" maxlength="60" readonly></input>
+        </label>
+        <div class="btn_area">
+          <button id="edit_data_btn">Edit</button>
+          <button id="edit_data_btn">Cancel</button>
+        </div>
       </form>
     </div>
     <!-- The footer -->

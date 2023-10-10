@@ -1,12 +1,12 @@
 // Access the server services by importing all the facilities that are in the
 //server module in the schema foler of our library
-import * as server from "../../../schema/v/code/server.js";
+import * as server from "../../../../../schema/v/code/server.js";
 //
 //Access the library needed for saving data to a database from Javascript
-import * as quest from "../../../schema/v/code/questionnaire.js";
+import * as quest from "../../../../../schema/v/code/questionnaire.js";
 //
 // Access to Page class of our library
-import * as view from "../../../outlook/v/code/view.js";
+import * as view from "../../../../../outlook/v/code/view.js";
 //
 // Get the documents to drive our page. A document has the following structure:-
 type doc = {
@@ -41,7 +41,7 @@ export class triple_m extends view.page {
   public transcription_section: HTMLElement;
   //
   // This is the side panel that represents shows the folders of the documents.
-  public folder_section: HTMLElement;
+  public documents_section: HTMLElement;
   //
   //The couner for documents being displayed
   public counter: number = 0;
@@ -55,60 +55,47 @@ export class triple_m extends view.page {
     super();
     //
     // the image panel
-    //
     this.images_section = document.getElementById("images_section")!;
-    // the transcript panel
     //
+    // the transcript panel
     this.transcription_section = document.getElementById(
       "transcription_section"
     )!;
     //
     // the folder panel
-    this.folder_section = document.getElementById("folder_section")!;
-    //
-    //
+    this.documents_section = document.getElementById("documents_section")!;
   }
   //
-  // Show the panels i.e image, transcription and the folders panel.
-  public async show_panels(): Promise<void> {
+  // Loads all the folders in the database for categorization of the documents
+  // Lists all the documents from the database assuming one of the radio buttons will be selected.
+  public async load_documents(): Promise<void> {
     //
-    // Load the documents from the database.
+    // Execute sql to list the documents.
     this.docs = await server.exec(
       "database",
       ["mutall_mashamba", false],
       "get_sql_data",
-      ["/mashamba/v/code/mashamba.sql", "file"]
+      ["/mashamba/v/code/tripleM/v/data/mashamba.sql", "file"]
     );
     //
-    // Load all the data from the database
-    this.load_data();
+    // Display all the documents in the documents panel.
+    this.list_documents();
   }
-  load_data(){
-    // 
-    // Load the folders on the folders panel
-    this.load_folders();
-    // 
-    // Load all the first page documents
-    this.load_first_pages_of_documents();
-    // 
-    // Fill in the transcriptions when document is hightlighted/selected
-    this.fill_transcriptions();
+  //
+  // Listing the documents on the documents panel.
+  list_documents() {
+    //
+    // 1.
+    //
+    // Displays the images and the transcription when document is selected.
   }
-  // 
-  // Loads all the folders in the database for categorization of the documents
-  // Lists all the folders and when on is selected displays and the documents in the folder from the database.
-  load_folders(){
-
-  }
-  // 
-  // Gets all the first pages of the documents and displays on the images panel.
-  load_first_pages_of_documents(){
-    
-  }
-  // 
-  // Fill in the transcriptions when document is hightlighted/selected
-  fill_transcriptions(){
-    // 
-    // Checks if a document is hightlighted, if highlighted displays its transcriptions. 
-  }
+  //
+  // Displays the images and the transcription when document is selected.
+  selected_document() {}
+  //
+  // Gets all the images of the documents when a specific document is selected.
+  display_images_documents() {}
+  //
+  // Fill in the transcriptions when document is selected
+  fill_transcriptions() {}
 }

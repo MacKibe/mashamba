@@ -1,16 +1,20 @@
-body {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body {
+  font-size: 150%;
   display: grid;
-  min-height: 100dvh;
+  max-height: 100dvh;
   min-width: 100%;
-  grid-template-columns: 1fr 3fr 2fr;
-  grid-template-rows: 0.5fr 10fr 0.5fr;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 0.5fr 3fr 4fr 0.5fr;
   grid-template-areas:
-    "header header header"
-    "aside images_section transcription_section"
-    "footer footer footer";
+    "header header"
+    "aside images_section"
+    "aside transcription_section"
+    "footer footer";
 }
 header {
   background-color: #cedfd9;
@@ -23,12 +27,36 @@ aside {
   background-color: #5f5449;
   color: #ebfcfb;
   grid-area: aside;
+  text-align: center;
+  overflow-x: scroll;
+}
+aside form {
+  padding: 2%;
+  position: sticky;
+}
+form fieldset label{
+  display: block;
+  text-align: left;
+  margin-left: 5%;
+  padding: 1%;
+}
+aside .doc_list li {
+  width: 90%;
+  margin: 1% auto;
+  background-color: #ebfcfb;
+  color: #5f5449;
+  text-align: left;
 }
 .images_section {
+  background-color: #b09398;
   grid-area: images_section;
+  display: flex;
+  justify-content: space-evenly;
+  overflow-x: scroll;
 }
 .images_section img {
-  max-width: 20%;
+  width: 20%;
+  padding: .5%;
 }
 .transcription_section {
   background-color: #ebfcfb;
@@ -38,15 +66,13 @@ aside {
 .transcription_section form {
   max-width: 80%;
   margin: 0 auto;
-  font-size: 150%;
 }
 form > * {
   display: block;
-  width: 90%;
   margin-bottom: 2%;
 }
 form button {
-  width: 30%;
+  width: 10%;
   aspect-ratio: 5/1;
 }
 footer {
@@ -63,16 +89,8 @@ footer {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       "header"
-      "aside images_section"
-      "aside transcription_section"
-      "footer";
-  }
-  /* body_no_aside {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "header"
       "images_section"
       "transcription_section"
       "footer";
-  } */
+  }
 }
