@@ -65,23 +65,48 @@ export class triple_m extends view.page {
     documents.forEach(document => {
       // 
       // Create a list element
-      const the_li_element = this.document.createElement('button');
+      const doc_button = this.document.createElement('button');
+      // 
+      // Give id to the buttons.
+      doc_button.id = 'doc_btn';
       // 
       // Add the value to the li elements
-      the_li_element.innerHTML = `${document.num}: ${document.name}`;
+      doc_button.innerHTML = `${document.num}: ${document.name}`;
       // 
       // Append this values to the ul
-      doc_list.appendChild(the_li_element);
+      doc_list.appendChild(doc_button);
+      // 1. Add event listener to the button when its clicked it shows images of the specific document 
+      // and its transcription.
+      doc_button.onclick = () => this.display_images_and_transcripts();
     });
   };
-}
+  // 
+  // Now that the documents are displayed lets display the images and their transcripts
+  display_images_and_transcripts(){
+    // 
+    // 1. Display images of the documents when a specific document is selected.
+    this.display_images_documents();
+    // 
+    // 2. Show transcripts
+    this.fill_transcriptions();
+  }
   //
-  // Displays the images and the transcription when document is selected.
-  // selected_document() {}
-  //
-  // Gets all the images of the documents when a specific document is selected.
-  // display_images_documents() {}
+  // Display images of the documents when a specific document is selected.
+  display_images_documents() {
+    // 
+    // Get the images 
+    // 
+    // Execute the sql
+    // 
+    // Get reference to the images panel
+    // 
+    // Append the images to the images panel
+  }
   //
   // Fill in the transcriptions when document is selected
-  // fill_transcriptions() {}
+  fill_transcriptions() {
+    
+  }
+}
+  
 //}
