@@ -52,4 +52,4 @@ with
             inner join transcription on transcription.document = document.document
         where category=@category
     )    
-select * from images;
+select * from documents;
