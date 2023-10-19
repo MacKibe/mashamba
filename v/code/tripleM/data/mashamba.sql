@@ -1,5 +1,5 @@
 # Set the desired type of documents
-set @category='mutation';
+-- set @category='mutation';
 
 # Formulate the office query in 3 parts: images, documents, and transcription
 with
@@ -14,20 +14,17 @@ with
     ),
     # Compile the CTE for driving the documents panel
     documents as (
-        SELECT
-    document.document,
-    CONCAT_WS("/", document.id, person, area) AS documents
-FROM document
-INNER JOIN image ON image.document = document.document
-INNER JOIN folder ON document.folder = folder.folder
-WHERE document.document IN (
-    SELECT document.document
-    FROM document
-    INNER JOIN image ON image.document = document.document
-    INNER JOIN folder ON document.folder = folder.folder
-    GROUP BY document.document
-    LIMIT 1
-),
+        select
+            document.document,
+            #
+            # A visible link for driving the documents panel
+            concat_ws("/", document.id, person, area) as documents,
+        from document
+            inner join image on image.document = document.document
+            inner join folder on document.folder = folder.folder
+        where 
+            category.category = '1';
+    ),
     
     # Compile the CTE for driving the transcription panel
     transcription as (

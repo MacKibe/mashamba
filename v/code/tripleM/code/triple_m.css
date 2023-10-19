@@ -9,7 +9,7 @@ body {
   max-height: 100dvh;
   min-width: 100%;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 0.5fr 3fr 4fr 0.5fr;
+  grid-template-rows: 0.5fr 4fr 3fr 0.5fr;
   grid-template-areas:
     "header header"
     "aside images_section"
@@ -27,12 +27,10 @@ aside {
   background-color: #5f5449;
   color: #ebfcfb;
   grid-area: aside;
-  text-align: center;
   overflow-x: scroll;
 }
 aside form {
   padding: 2%;
-  position: sticky;
 }
 form fieldset label{
   display: block;
@@ -40,7 +38,7 @@ form fieldset label{
   margin-left: 5%;
   padding: 1%;
 }
-aside .doc_list li {
+aside .doc_list button {
   width: 90%;
   margin: 1% auto;
   background-color: #ebfcfb;
@@ -55,23 +53,19 @@ aside .doc_list li {
   overflow-x: scroll;
 }
 .images_section img {
-  width: 20%;
   padding: .5%;
 }
 .transcription_section {
-  background-color: #ebfcfb;
+  width: 90%;
+  margin: 1px auto;
   color: #5f5449;
   grid-area: transcription_section;
-}
-.transcription_section form {
-  max-width: 80%;
-  margin: 0 auto;
 }
 form > * {
   display: block;
   margin-bottom: 2%;
 }
-form button {
+.transcription_section form button {
   width: 10%;
   aspect-ratio: 5/1;
 }

@@ -5,6 +5,8 @@ import * as server from "../../../../../schema/v/code/server.js";
 // Access to Page class of our library
 import * as view from "../../../../../outlook/v/code/view.js";
 //
+//
+//
 // Extend the page class with our own version, called mashamba
 export class triple_m extends view.page {
     //
@@ -34,8 +36,8 @@ export class triple_m extends view.page {
     }
     //
     // Lists all the documents from the database
-    async load_documents() {
-        // 
+    async load_documents(criteria) {
+        //
         // Get the documents using a query
         const sql = `
       select
@@ -47,35 +49,53 @@ export class triple_m extends view.page {
         inner join image on image.document = document.document
         inner join folder on document.folder = folder.folder
     `;
-        // 
+        //
         //  Excecute the sql
-        const documents = await server.exec('database', ['mutall_mashamba'], 'get_sql_data', [sql]);
-        // 
+        const documents = await server.exec("database", ["mutall_mashamba"], "get_sql_data", [sql]);
+        //
         // Get reference to the documents panel
-        const doc_list = document.getElementById('doc_list');
-        // 
-        // Append the list of documents to each li element
-        documents.forEach(document => {
-            // 
-            // Create a list element
-            const the_li_element = this.document.createElement('button');
-            // 
-            // Add the value to the li elements
-            the_li_element.innerHTML = `${document.num}: ${document.name}`;
-            // 
-            // Append this values to the ul
-            doc_list.appendChild(the_li_element);
+        const doc_list = document.getElementById("doc_list");
+        //
+        // Append the list of documents to a button element
+        documents.forEach((document) => {
+            //
+            // Create a button element
+            const doc_button = this.document.createElement("button");
+            //
+            // Give an id to the button.
+            doc_button.id = "doc_btn";
+            //
+            // Add the value to the button elements
+            doc_button.innerHTML = `${document.num}: ${document.name}`;
+            //
+            // Append this values to the button
+            doc_list.appendChild(doc_button);
+            // 1. Add event listener to the button when its clicked it shows images of the specific document
+            // and its transcription.
+            doc_button.onclick = () => {
+                // 
+                // Display images.
+                this.display_images();
+                // 
+                // Display transcripts of the document.
+                this.fill_transcriptions();
+            };
         });
     }
-    ;
+    //
+    // Display images of the documents when a specific document is selected.
+    display_images() {
+        //
+        // Get the images
+        //
+        // Execute the sql
+        //
+        // Get reference to the images panel
+        //
+        // Append the images to the images panel
+    }
+    //
+    // Fill in the transcriptions when document is selected
+    fill_transcriptions() { }
 }
-//
-// Displays the images and the transcription when document is selected.
-// selected_document() {}
-//
-// Gets all the images of the documents when a specific document is selected.
-// display_images_documents() {}
-//
-// Fill in the transcriptions when document is selected
-// fill_transcriptions() {}
 //}

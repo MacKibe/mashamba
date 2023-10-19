@@ -141,6 +141,4 @@ class mashamba {
         //Log the loadding error if any
         if ($result!=='ok') $this->errors[] = new Error($result);
     }
-    
-    
 }

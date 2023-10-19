@@ -7,24 +7,24 @@
     <link rel="stylesheet" href="./triple_m.css" />
     <!--
       Code for controlling this page-->
-      <script type="module">
+    <script type="module">
+      //
+      // Import the class that carries our code, from mashama.js file
+      import { triple_m } from "./triple_m.js";
+      //
+      //After the page loads....
+      window.onload = async () => {
         //
-        // Import the class that carries our code, from mashama.js file
-        import { triple_m } from "./triple_m.js";
+        //Create the mashmba page
+        const page = new triple_m();
         //
-        //After the page loads....
-        window.onload = async () => {
-          //
-          //Create the mashmba page
-          const page = new triple_m();
-          //
-          //Set the criteria for searchimng
-          const criteria = undefined;
-          //
-          //Show all the documents in the database,
-          await page.load_documents(criteria);
-        };
-        </script>
+        //Set teh criteria for searchimng
+        const criteria= undefined;
+        //
+        //Show all the documents in the database,
+        await page.load_documents(criteria);
+      };
+      </script>
   </head>
   <body>
     <!-- Contains our logo and Company title -->
@@ -32,15 +32,12 @@
     <!-- The side panel -->
     <aside id="documents_section">
       <form>
-        <h3>Search by:</h3>
+        <label>
+          Search:
+          <input type="text">
+        </label>
         <fieldset>
-          <legend><input type="radio" name="search">Keyword</legend>
-          <label>Name:<input type="text" name="search"></label>
-        </fieldset>
-        <fieldset>
-          <legend>
-          <input type="radio" name="search">Category
-          </legend>
+          <legend>Choose type of document</legend>
           <label>
             <input type="radio" name="category">
             Mutations
@@ -58,7 +55,6 @@
             Others
           </label>
         </fieldset>
-        <button type="submit">Search</button>
       </form>
       <div class="doc_list" id="doc_list">
         <h2>Documents</h2>
@@ -71,6 +67,11 @@
       <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
       <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
       <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
+      <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
+      <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
+      <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
+      <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
+      <img src="../../../images/COPIES Title - deeds OTHERS/1/img253.jpg" alt="">
     </div>
     <!-- transccription section -->
     <div class="transcription_section" id="transcription_section">
@@ -78,23 +79,23 @@
         <h2>Document Details.</h2>
         <label > 
           Document Id:
-          <input name="document" type="text" maxlength="30" readonly />
+          <input class="document" type="text" maxlength="30" readonly />
         </label>
         <label> 
           Title No: 
-          <input name="title_no" type="text" maxlength="200" readonly/>
+          <input class="title_no" type="text" maxlength="200" readonly/>
         </label>
         <label> 
           Approximate Area:
-          <input type="text" name="area" maxlength="25" readonly/>
+          <input type="text" class="area" maxlength="25" readonly/>
         </label>
         <label> 
           Registry Sheet No:
-          <input type="text" name="regno" maxlength="200" readonly/>
+          <input type="text" class="regno" maxlength="200" readonly/>
         </label>
         <label> 
           Persons Of Interest:
-          <input type="text" name="owner" maxlength="60" readonly></input>
+          <input type="text" class="owner" maxlength="60" readonly></input>
         </label>
         <div class="btn_area">
           <button id="edit_data_btn">Edit</button>
