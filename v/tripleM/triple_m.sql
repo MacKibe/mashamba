@@ -25,7 +25,7 @@ with
                 json_object(
                     "pk", category,
                     "name", name,
-                    "documents", counts
+                    "number_of_documents", counts
                 )
             ) as category
         from 
@@ -71,8 +71,8 @@ with
         select
                 json_object(
                     "pk", document.document,
-                    "image", images.images,
-                    "name", documents.documents,
+                    "images", images.images,
+                    "name_of_document", documents.documents,
                     "transcrption", transcription.transcriptions
                 ) x
         from 
