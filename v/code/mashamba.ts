@@ -493,7 +493,7 @@ class load_images extends dialog<Iimagery>{
     //
     constructor(anchor:HTMLElement){
         //
-        //Initializing the parent class without any input data.
+        // Initializing the parent class without any input data.
         super({url:"./load_images.html",anchor});
     }
     //

@@ -21,10 +21,10 @@ type criteria =
 };
 // 
 // Fields
-type field = | "document" | "title_no" | "category" | "area" | "owner" | "regno";
+type fields = "document" | "title_no" | "category" | "area" | "owner" | "regno";
 // 
 // Images
-type image = { 
+type images = { 
   url: string;  
 };
 // 
@@ -32,7 +32,7 @@ type image = {
 type document = {
     name:string,
     images:Array<image>,
-    fields:Array<field>
+    fields:Array<fields>
 }
 //
 // Extend the page class with our own version, called mashamba
@@ -66,7 +66,7 @@ export class triple_m extends view.page {
     this.documents_section = document.getElementById("documents_section")!;
   }
   //
-  // Lists all the documents from the database
+  // Lists all the documents from the database in the document panel
   public async load_documents(criteria?:criteria): Promise<void> {
     //
     const sql = this.get_criteta_sql(criteria);
@@ -86,6 +86,16 @@ export class triple_m extends view.page {
   get_criteta_sql(criteria) {
     //
     // Get the documents using a query
+    const sql = `
+      select
+        document.document,
+        #
+        # A visible link for driving the documents panel
+        concat_ws("/", document.id, person, area) as documents
+      from document
+        inner join image on image.document = document.document
+        inner join folder on document.folder = folder.folder
+    `;
   }
   load_document(document:{name:string, images:string, fields:string}):void{
     // 
@@ -108,14 +118,14 @@ export class triple_m extends view.page {
     const item= this.document.createElement('li');
     // 
     // Add the value to the li elements
-    item.textContent = name; 
+    item.textContent = document.name; 
     //
     // 
     return item;
   }
   //
   // Display images of the documents when a specific document is selected.
-  display_image(image:image) {
+  display_image(images:image) {
     //
     // Get the images
     //
@@ -125,7 +135,7 @@ export class triple_m extends view.page {
   }
   //
   // Fill in the transcriptions when document is selected
-  display_field(field:field) {
+  display_field(fields:field) {
     //
     //Skip the pages key (because it is a special key)
     if (key === "pages") return;
