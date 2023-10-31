@@ -7,27 +7,27 @@ import * as view from "../../../outlook/v/code/view.js";
 //
 // Get the documents to drive our page.
 // A document has the following structure:-
-type criteria = 
+type criterias = 
 {
   type: 'keyword',
   word: string
 }|
 {
   type: 'category',
-  name: category
+  name: categories
 };
 // 
 // didnt include the pk
-type category = {
+type categories = {
   name:string;
   no_of_documents:number;
 }
 // 
 // 
-type transcription = "id"|"area"|"regno"|"person";
+type transcriptions = "id"|"area"|"regno"|"person";
 // 
 //
-type image = {
+type images = {
   num:number;
   url:string;
 }
@@ -37,7 +37,7 @@ type documents = {
     pk:number;
     name:string;
     image:Array<images>;
-    transcription:transcription;
+    transcription:transcriptions;
 }
 
 //
@@ -73,7 +73,7 @@ export class triple_m extends view.page {
   }
   //
   // Lists all the documents from the database in the document panel
-  public async load_documents(criteria?:criteria): Promise<void> {
+  public async load_documents(criteria?:criterias): Promise<void> {
     //
     const sql = this.get_criteria_sql(criteria);
     // 
@@ -89,7 +89,7 @@ export class triple_m extends view.page {
     // 
   };
   // 
-  get_criteria_sql(criteria):string {
+  get_criteria_sql(criteria:criterias):string {
     //
     //Start with an empty sql
     let sql:string;
@@ -101,27 +101,30 @@ export class triple_m extends view.page {
     //
     //Replace @category with the criteria
     //
-    //Retturn the complete sqs
+    //Return the complete sqls
     
   }
   load_document(document:documents):void{
-    // 
-    // Create a list element
-    const item:string = this.show_documents_panel(document.name);
     //
-    const images:Array<images> = JSON.parse(document.image);
-    const fields:Array<transcription> = JSON.parse(document.transcription);
+    // Create a list element
+    const items:string = this.show_documents_panel(document);
+    //
+    // 
+    const image:Array<images> = JSON.parse(documents);
+    // 
+    // 
+    const transcription:Array<transcriptions> = JSON.parse(document.transcription);
     //
     // 1. Add event listener to the button when its clicked it shows images of the specific document 
     // and its transcription.
-    item.onclick = () => {
-        images.forEach(Image=>this.display_image(Image));
-        fields.forEach(Field=>this.display_field(Field))
+    items.onclick = () => {
+        image.forEach(Image=>this.display_image(Image));
+        transcription.forEach(transcription=>this.display_field(transcription))
     }
   }
     // 
   // Loads documents on document panel
-  show_documents_panel(document.name){
+  show_documents_panel(document:documents){
     //
     const item= this.document.createElement('li');
     // 
