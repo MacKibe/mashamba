@@ -88,6 +88,7 @@ export class triple_m extends view.page {
     //
     // 
   };
+  //  
   // 
   get_criteria_sql(criteria:criterias):string {
     //
@@ -104,6 +105,8 @@ export class triple_m extends view.page {
     //Return the complete sqls
     
   }
+  //  
+  //
   load_document(document:documents):void{
     //
     // Create a list element

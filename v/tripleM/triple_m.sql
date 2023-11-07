@@ -81,8 +81,7 @@ with
             left join images on images.document = document.document
             inner join documents on documents.document = document.document
             inner join transcription on transcription.document = document.document
-        where category.name=@category
-        limit 1
+        limit 10
     ),
     
     office as (
@@ -91,4 +90,4 @@ with
         from
             document
     )
-select * from report_category;
+select * from office;
