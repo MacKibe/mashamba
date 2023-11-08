@@ -1,13 +1,12 @@
 // 
 // Contains the documents from my Mashamba database
 
-function DocumentsList(){
-
-    return(
+export function DocumentsList( {document_data} ){
+    return (
         <>
             <div className="DocumentsList">
                 <ul>
-                    {Object.values(document_data).map((data, index) =>
+                    {document_data.map((data, index) =>
                         <li key={index}>{data}</li>
                     )}
                 </ul>
@@ -16,4 +15,3 @@ function DocumentsList(){
     )
 }
 
-export default DocumentsList

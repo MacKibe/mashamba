@@ -2,12 +2,14 @@
 // 
 import FilterSection from "./FilterSection"
 import DocumentsList from "./DocumentsList"
-function SidePanel(){
+export function SidePanel ({ document_data }) {
     return(
         <>
-            <FilterSection />
-            <DocumentsList />
+            <div>
+                <FilterSection />
+                <DocumentsList document_data={document_data}/>
+            </div>
         </>
     )
 }
-export default SidePanel
+

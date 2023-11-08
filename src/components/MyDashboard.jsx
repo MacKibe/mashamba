@@ -309,15 +309,15 @@ import SidePanel from "./SidePanel"
         }
     ]
 
-    return(
+    return (
         <>
             <div className='body--section'>
                 <div className='side-panel'>
-                    <SidePanel document_data={documents.name_of_document}/>
+                    <SidePanel document_data={documents}/>
                 </div>
                 <div className='main-section'>
-                    <ImagesSection document_data={documents.images}/>
-                    <TranscriptionsSection document_data={documents.transcrption}/>
+                    <ImagesSection />
+                    <TranscriptionsSection />
                 </div>
             </div>
         </>
