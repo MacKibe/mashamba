@@ -5,6 +5,9 @@ export function DocumentsList( {document_data} ){
     return (
         <>
             <div className="DocumentsList">
+                <h2>
+                    Documents <span></span>
+                </h2>
                 <ul>
                     {document_data.map((data, index) =>
                         <li key={index}>{data}</li>

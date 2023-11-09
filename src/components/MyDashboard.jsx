@@ -2,7 +2,7 @@
 // 
 import ImagesSection from "./ImagesSection"
 import TranscriptionsSection from "./TranscriptionsSection"
-import SidePanel from "./SidePanel"
+import DocumentsList from "./DocumentsList"
 
  function MyDashboard(){
     const documents = 
@@ -313,12 +313,12 @@ import SidePanel from "./SidePanel"
         <>
             <div className='body--section'>
                 <div className='side-panel'>
-                    <SidePanel document_data={documents}/>
+                  <DocumentsList documnets_data={documents.name_of_document}/>
                 </div>
-                <div className='main-section'>
-                    <ImagesSection />
-                    <TranscriptionsSection />
-                </div>
+                {/* <div className='main-section'>
+                    <ImagesSection documnets_data={documents.name_of_document}/>
+                    <TranscriptionsSection documnets_data={documents.name_of_document}/>
+                </div> */}
             </div>
         </>
     )
