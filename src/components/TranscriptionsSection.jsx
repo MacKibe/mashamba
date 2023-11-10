@@ -1,8 +1,11 @@
-function TranscriptionsSection(){
+function TranscriptionsSection({transcrptions}){
     return(
         <>
             <div className="TranscriptionsSection">
-                Transcription section
+                <p>id{transcrptions.id}</p>
+                <p>area{transcrptions.area}</p>
+                <p>regno{transcrptions.regno}</p>
+                <p>person{transcrptions.person}</p>
             </div>
         </>
     )

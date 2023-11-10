@@ -317,11 +317,11 @@ import ImagesSection from "./ImagesSection"
                   ))};
                 </div>
                 <div className="ImageSection">
-                  {documents.map((document, index) => (
-                    <ImagesSection key={index} name_of_document={document.images}/>
+                  {documents.map((document) => (
+                    <ImagesSection name_of_document={document.images}/>
                   ))};
-                  {documents.map((document, index) => (
-                    <TranscriptionsSection key={index} name_of_document={document.transcrption}/>
+                  {documents.map((document) => (
+                    <TranscriptionsSection transcrptions={document.transcrption}/>
                   ))};
                 </div>
             </div>
