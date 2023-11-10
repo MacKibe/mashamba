@@ -12,22 +12,22 @@ import ImagesSection from "./ImagesSection"
           "images": [
             {
               "num": "1",
-              "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img253.jpg",
+              "url": "https://dev.mutall.co.ke/mashamba/v/images/COPIES%20Title%20-%20deeds%20OTHERS/1/img254.jpg",
               "name": "img253.jpg"
             },
             {
               "num": "2",
-              "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img254.jpg",
+              "url": "https://dev.mutall.co.ke/mashamba/v/images/COPIES%20Title%20-%20deeds%20OTHERS/1/img254.jpg",
               "name": "img254.jpg"
             },
             {
               "num": "3",
-              "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img255.jpg",
+              "url": "https://dev.mutall.co.ke/mashamba/v/images/COPIES%20Title%20-%20deeds%20OTHERS/1/img254.jpg",
               "name": "img255.jpg"
             },
             {
               "num": "4",
-              "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img256.jpg",
+              "url": "https://dev.mutall.co.ke/mashamba/v/images/COPIES%20Title%20-%20deeds%20OTHERS/1/img254.jpg",
               "name": "img256.jpg"
             }
           ],
@@ -44,22 +44,22 @@ import ImagesSection from "./ImagesSection"
           "images": [
             {
               "num": "1",
-              "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img253.jpg",
+              "url": "https://dev.mutall.co.ke/mashamba/v/images/COPIES%20Title%20-%20deeds%20OTHERS/1/img254.jpg",
               "name": "img253.jpg"
             },
             {
               "num": "2",
-              "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img254.jpg",
+              "url": "https://dev.mutall.co.ke/mashamba/v/images/COPIES%20Title%20-%20deeds%20OTHERS/1/img254.jpg",
               "name": "img254.jpg"
             },
             {
               "num": "3",
-              "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img255.jpg",
+              "url": "https://dev.mutall.co.ke/mashamba/v/images/COPIES%20Title%20-%20deeds%20OTHERS/1/img254.jpg",
               "name": "img255.jpg"
             },
             {
               "num": "4",
-              "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img256.jpg",
+              "url": "https://dev.mutall.co.ke/mashamba/v/images/COPIES%20Title%20-%20deeds%20OTHERS/1/img254.jpg",
               "name": "img256.jpg"
             }
           ],
@@ -76,22 +76,22 @@ import ImagesSection from "./ImagesSection"
           "images": [
             {
               "num": "1",
-              "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img253.jpg",
+              "url": "https://dev.mutall.co.ke/mashamba/v/images/COPIES%20Title%20-%20deeds%20OTHERS/1/img254.jpg",
               "name": "img253.jpg"
             },
             {
               "num": "2",
-              "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img254.jpg",
+              "url": "https://dev.mutall.co.ke/mashamba/v/images/COPIES%20Title%20-%20deeds%20OTHERS/1/img254.jpg",
               "name": "img254.jpg"
             },
             {
               "num": "3",
-              "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img255.jpg",
+              "url": "https://dev.mutall.co.ke/mashamba/v/images/COPIES%20Title%20-%20deeds%20OTHERS/1/img254.jpg",
               "name": "img255.jpg"
             },
             {
               "num": "4",
-              "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img256.jpg",
+              "url": "https://dev.mutall.co.ke/mashamba/v/images/COPIES%20Title%20-%20deeds%20OTHERS/1/img254.jpg",
               "name": "img256.jpg"
             }
           ],
@@ -108,22 +108,22 @@ import ImagesSection from "./ImagesSection"
           "images": [
             {
               "num": "1",
-              "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img253.jpg",
+              "url": "https://dev.mutall.co.ke/mashamba/v/images/COPIES%20Title%20-%20deeds%20OTHERS/1/img254.jpg",
               "name": "img253.jpg"
             },
             {
               "num": "2",
-              "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img254.jpg",
+              "url": "https://dev.mutall.co.ke/mashamba/v/images/COPIES%20Title%20-%20deeds%20OTHERS/1/img254.jpg",
               "name": "img254.jpg"
             },
             {
               "num": "3",
-              "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img255.jpg",
+              "url": "https://dev.mutall.co.ke/mashamba/v/images/COPIES%20Title%20-%20deeds%20OTHERS/1/img254.jpg",
               "name": "img255.jpg"
             },
             {
               "num": "4",
-              "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img256.jpg",
+              "url": "https://dev.mutall.co.ke/mashamba/v/images/COPIES%20Title%20-%20deeds%20OTHERS/1/img254.jpg",
               "name": "img256.jpg"
             }
           ],
@@ -317,11 +317,11 @@ import ImagesSection from "./ImagesSection"
                   ))};
                 </div>
                 <div className="ImageSection">
-                  {documents.map((document) => (
-                    <ImagesSection name_of_document={document.images}/>
+                  {documents.map((document, index) => (
+                    <ImagesSection key={index} images={document.images}/>
                   ))};
-                  {documents.map((document) => (
-                    <TranscriptionsSection transcrptions={document.transcrption}/>
+                  {documents.map((document , index) => (
+                    <TranscriptionsSection key={index} transcrptions={document.transcrption}/>
                   ))};
                 </div>
             </div>

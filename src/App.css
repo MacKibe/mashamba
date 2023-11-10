@@ -5,7 +5,7 @@ and also having our element be in border box  */
     margin: 0;
     box-sizing: border-box;
 }
-/* my header stylings */
+/* Header stylings */
 .header-section {
     background-color: rgb(54, 100, 141);
 }
@@ -14,28 +14,7 @@ and also having our element be in border box  */
     text-align: center;
 }
 
-/* Body sectio styling */
+/* Body section styling */
 .body--section {
     display: flex;
-}
-/* SidePanel stylings */
-.side-panel {
-    background-color: aliceblue;
-}
-.FilterSection {
-    background-color: antiquewhite;
-}
-
-.DocumentsList {
-    background-color: bisque;
-}
-/* MainBody Stylings */
-.main-section{
-}
-.ImagesSection{
-    background-color: aquamarine;
-}
-
-.TranscriptionsSection{
-    background-color: brown;
 }
