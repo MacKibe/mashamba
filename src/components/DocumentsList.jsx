@@ -1,20 +1,13 @@
-// 
+//
 // Contains the documents from my Mashamba database
+import './DocumentsList.css'
 
-export function DocumentsList( {document_data} ){
-    return (
-        <>
-            <div className="DocumentsList">
-                <h2>
-                    Documents <span></span>
-                </h2>
-                <ul>
-                    {document_data.map((data, index) =>
-                        <li key={index}>{data}</li>
-                    )}
-                </ul>
-            </div>
-        </>
-    )
-}
+const DocumentsList = ({name_of_document}) => {
+  return (
+    <div className="DocumentsList">
+      <p>{name_of_document}</p>
+    </div>
+  );
+};
 
+export default DocumentsList;

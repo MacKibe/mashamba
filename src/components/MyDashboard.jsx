@@ -1,8 +1,8 @@
 // 
 // 
-import ImagesSection from "./ImagesSection"
-import TranscriptionsSection from "./TranscriptionsSection"
 import DocumentsList from "./DocumentsList"
+import TranscriptionsSection from "./TranscriptionsSection"
+import ImagesSection from "./ImagesSection"
 
  function MyDashboard(){
     const documents = 
@@ -308,17 +308,22 @@ import DocumentsList from "./DocumentsList"
           "name_of_document": "COPIES Title - deeds OTHERS/12/ATANAS KAMAU MWANGI/0.03"
         }
     ]
-
     return (
         <>
             <div className='body--section'>
                 <div className='side-panel'>
-                  <DocumentsList documnets_data={documents.name_of_document}/>
+                  {documents.map((document, index) => (
+                    <DocumentsList key={index} name_of_document={document.name_of_document}/>
+                  ))};
                 </div>
-                {/* <div className='main-section'>
-                    <ImagesSection documnets_data={documents.name_of_document}/>
-                    <TranscriptionsSection documnets_data={documents.name_of_document}/>
-                </div> */}
+                <div className="ImageSection">
+                  {documents.map((document, index) => (
+                    <ImagesSection key={index} name_of_document={document.images}/>
+                  ))};
+                  {documents.map((document, index) => (
+                    <TranscriptionsSection key={index} name_of_document={document.transcrption}/>
+                  ))};
+                </div>
             </div>
         </>
     )
