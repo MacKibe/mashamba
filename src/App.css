@@ -18,3 +18,23 @@ and also having our element be in border box  */
 .body--section {
     display: flex;
 }
+/* Images Section */
+.ImageSection {
+    
+}
+li{
+    list-style: none;
+}
+img {
+    width: 10%;
+}
+
+/* Side Panel */
+.DocumentsList {
+    padding: 2%;
+}
+.DocumentsList p{
+    background-color: rgb(202, 142, 142);
+}
+
+/*  */

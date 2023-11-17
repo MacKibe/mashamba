@@ -1,11 +1,11 @@
-function TranscriptionsSection({transcrptions}){
+const TranscriptionsSection = ({transcriptions}) => {
     return(
         <>
             <div className="TranscriptionsSection">
-                <p>id{transcrptions.id}</p>
-                <p>area{transcrptions.area}</p>
-                <p>regno{transcrptions.regno}</p>
-                <p>person{transcrptions.person}</p>
+                <p>id: {transcriptions.id}</p>
+                <p>area: {transcriptions.area}</p>
+                <p>regno: {transcriptions.regno}</p>
+                <p>person: {transcriptions.person}</p>
             </div>
         </>
     )
