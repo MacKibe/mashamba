@@ -21,6 +21,9 @@ export class mashamba extends view.page {
     //The results of interrogating the database is an array of documents
     docs;
     //
+    // Local path
+    path = '/mashamba/images/';
+    //
     //
     constructor() {
         super();
@@ -100,10 +103,7 @@ export class mashamba extends view.page {
     create_first_page(page) {
         //
         // Get url of of the first page
-        const url = page.url;
-        //
-        // Local path
-        const path = '/mashamba/images/';
+        const url = this.path + page.url;
         //
         // Create the first page image
         const image1 = document.createElement("img");
@@ -115,15 +115,18 @@ export class mashamba extends view.page {
         this.first_page.appendChild(image1);
         //
         // Set the url of the page
-        image1.src = `http://localhost${path}{url}`;
+        image1.src = `http://localhost${url}`;
     }
     create_other_page(page) {
+        //
+        // Get url of of the first page
+        const url = this.path + page.url;
         //
         // Create an image element for this page
         const image = document.createElement("img");
         //
         // Set the source of the image to the URL of the page
-        image.src = `http://localhost${page.url}`;
+        image.src = `http://localhost${url}`;
         //
         // Attach the image element to the other-pages div element
         this.other_pages.appendChild(image);
