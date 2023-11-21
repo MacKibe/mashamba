@@ -1,0 +1,25 @@
+[{
+        "pk": 4,
+        "name": "certificate of lease",
+        "documents": 3
+    }, 
+    {
+        "pk": 2,
+        "name": "certificate of title",
+        "documents": 1
+    }, 
+    {
+        "pk": 1,
+        "name": "mutation",
+        "documents": 978
+    }, 
+    {
+        "pk": 19,
+        "name": "OTHERS",
+        "documents": 39
+    }, 
+    {
+        "pk": 3,
+        "name": "title deed",
+        "documents": 742
+    }]

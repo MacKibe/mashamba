@@ -24,6 +24,12 @@ type Iimage = {
     name:string
 }
 
+// Show the number of documents in each category
+type Icategory = {
+    name: string,
+    count: string
+}
+
 export class mmm extends view{
     //
     //Base is the path for accessing the images, e.g., /mashamba/images
@@ -40,8 +46,51 @@ export class mmm extends view{
         //
         //Attach all the documents to the anchor tag
         Idocuments.forEach(Idocument=>new doc(Idocument, ul, this.base));
+        //
+        // Get the categories and counts
+        const categories: Icategory[] = await this.get_categories();
+        // 
+        // List the categories.
+        // await this.list_categories(categories);
+        console.log(categories);
     }
-
+    // Method to retrieve categories
+    async get_categories(): Promise<Icategory[]> {
+        //
+        //Read the triple m cte from teh sql file
+        const mmm_cte = await exec(
+            'path',
+            ['/mashamba/v/mmm/mmm.sql', true],
+            'get_file_contents',
+            []
+        );
+        //
+        //Expand the triple_m cte to formulate the sql for retrieving all the 
+        //documents as a single structure
+        const sql = `
+            ${mmm_cte}
+            select
+                *
+            from
+                list_category`;
+        // 
+        
+        const rows: Array<{categories:string}> = await exec(
+            'database',
+            ['mutall_mashamba'],
+            'get_sql_data',
+            [sql]
+        );
+        //
+        //dedove the string to an arru of documents       
+        const categories: Icategory[] = rows.map(row => JSON.parse(row.categories));
+        // 
+        // List the categories
+        console.log(JSON.stringify(categories))
+        //
+        // Provides the categories
+        return categories;
+    }
     //Use the mmm cte to retrieve all the documents in the system
     async get_documents():Promise<Array<Idoc>>{
         //
