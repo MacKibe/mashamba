@@ -19,14 +19,17 @@ and also having our element be in border box  */
     display: flex;
 }
 /* Images Section */
-.ImageSection {
-    
+ul {
+    display: flex;
+    overflow-x: scroll;
 }
 li{
     list-style: none;
+    text-align: center;
+    border: 2px solid black;
 }
 img {
-    width: 10%;
+    width: 70%;
 }
 
 /* Side Panel */

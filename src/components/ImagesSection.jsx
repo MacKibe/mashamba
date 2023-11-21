@@ -1,22 +1,22 @@
-// 
-// 
-import './ImagesSection.css'
+//
+//
 
-function ImagesSection({images}){
-    // 
-    // Get images for the one document
-    const document_images = Object.values(images)[0];
-    return(
-        <>
-            <div className="image_component">
-                <li>
-                    <p>Page:{document_images.num}</p>
-                    <img src={document_images.url} alt={document_images.name}/>
-                    <p>{document_images.name}</p>
-                </li>
-            </div>
-        </>
-    )
+function ImagesSection({ images }) {
+  return (
+    <>
+      <div className="image_component">
+        <ul>
+          {images.map((image, index) => (
+            <li key={index}>
+              <p>Page: {image.num}</p>
+              <img src={image.url} alt={image.name} />
+              <p>{image.name}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
 }
 
-export default ImagesSection
+export default ImagesSection;
