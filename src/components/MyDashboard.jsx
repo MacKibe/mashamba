@@ -323,7 +323,9 @@ import ImagesSection from "./ImagesSection"
                     ))};
                   </div>
                   <div className="main--transcription_section">
-                      <TranscriptionsSection transcriptions={documents.transcription}/>
+                    {documents.map((document, index) => (
+                      <TranscriptionsSection key={index} transcriptions={document.transcription}/>
+                    ))};
                   </div>
                 </div>
             </div>

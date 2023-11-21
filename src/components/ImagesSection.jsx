@@ -2,12 +2,10 @@
 // 
 import './ImagesSection.css'
 
-
 function ImagesSection({images}){
     // 
     // Get images for the one document
     const document_images = Object.values(images)[0];
-    
     return(
         <>
             <div className="image_component">
