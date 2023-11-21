@@ -1,0 +1,53 @@
+* {
+  /* border box will help in making all the elements stay in the parent element without overflowing */
+  box-sizing: border-box;
+  /* resetting the page margin and padding 0 */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* font-size: 100%; */
+  display: grid;
+  min-height: 100dvh;
+  grid-template-columns: 15% 85%;
+  grid-template-rows: 5% 90% 5%;
+  grid-template-areas:
+    "aside header"
+    "aside main"
+    "aside footer";
+}
+
+header {
+  grid-area: header;
+}
+
+aside {
+  background-color: #61a0af;
+  grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  gap: 1%;
+  padding: 5%;
+}
+
+aside > * {
+  font-size: 120%;
+}
+
+main {
+  grid-area: main;
+  border-block: 2px solid black;
+}
+
+footer {
+  grid-area: footer;
+}
+
+header,
+footer {
+  font-size: 150%;
+  color: #61a0af;
+  text-align: center;
+  margin: auto 0;
+}

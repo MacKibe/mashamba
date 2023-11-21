@@ -1,0 +1,125 @@
+* {
+  /* border box will help in making all the elements stay in the parent element without overflowing */
+  box-sizing: border-box;
+  /* resetting the page margin and padding 0 */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 35% 65%;
+  grid-template-rows: 5% 40% 55%;
+  grid-template-areas:
+    "main header"
+    "main transcribe"
+    "main other_pages";
+}
+
+#first_page {
+  display: grid;
+  grid-area: main;
+  background-color: rgba(176, 176, 176, 0.763);
+  border: 1px solid #000;
+  width: 100%;
+}
+
+#first_page img {
+  width: 100%;
+  margin: auto;
+}
+
+header {
+  display: flex;
+  grid-area: header;
+  justify-content: space-between;
+  background-color: aqua;
+  height: 50%;
+}
+
+fieldset legend {
+  text-align: center;
+}
+
+fieldset {
+  display: flex;
+  justify-content: space-around;
+  border: 0;
+}
+
+fieldset:nth-of-type(1) {
+  flex-basis: 30%;
+}
+
+fieldset:nth-of-type(2) {
+  flex-basis: 30%;
+}
+
+fieldset:nth-of-type(3) {
+  flex-basis: 20%;
+}
+
+fieldset button {
+  width: 100%;
+  max-height: 10dvh;
+}
+
+button img {
+  max-width: 20%;
+}
+
+#transcribe {
+  grid-area: transcribe;
+  overflow-y: scroll;
+  columns: 2;
+}
+
+#transcribe label {
+  display: block;
+  margin: 5% 0;
+  font-size: 130%;
+}
+
+#transcribe button {
+  position: absolute;
+  width: 10%;
+}
+
+#other_pages {
+  display: flex;
+  z-index: 10;
+  justify-content: space-evenly;
+  overflow-x: scroll;
+  gap: 2%;
+  grid-area: other_pages;
+  background-color: rgba(89, 53, 53, 0.484);
+  border: 1px solid #000;
+}
+
+#other_pages img {
+  width: 30%;
+  margin: auto 0;
+}
+
+@media (max-width: 830px) {
+  body {
+    display: block;
+  }
+
+  #first_page img {
+    padding: 2%;
+  }
+
+  #transcribe {
+    grid-area: transcribe;
+  }
+
+  #other_pages {
+    grid-area: other_pages;
+  }
+
+  #other_pages img {
+    padding: 2% 0;
+  }
+}

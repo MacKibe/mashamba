@@ -1,0 +1,56 @@
+* {
+    /* border box will help in making all the elements stay in the parent element without overflowing */
+    box-sizing: border-box;
+    /* resetting all margin and paddings to 0 */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    min-height: 100dvh;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    grid-template-rows: 5% 40% 55%;
+    grid-template-areas:
+        "main header"
+        "main transcribe"
+        "main other_pages";
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    grid-area: header;
+    background-color: rgb(142, 202, 255);
+}
+
+#first_page {
+    display: grid;
+    grid-area: main;
+    background-color: rgba(176, 176, 176, 0.763);
+    border: 1px solid #000;
+}
+
+#first_page img{
+    width: 100%;
+    margin: auto;
+}
+
+.transcribe {
+    display: grid;
+    grid-area: transcribe;
+}
+
+#other_pages {
+    display: flex;
+    justify-content: space-evenly;
+    grid-area: other_pages;
+    background-color: rgba(89, 53, 53, 0.484);
+    border: 1px solid #000;
+}
+
+#other_pages img {
+    width: 30%;
+    margin: auto 0;
+}

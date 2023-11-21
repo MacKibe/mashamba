@@ -21,6 +21,12 @@ export class mashamba extends view.page {
     //The results of interrogating the database is an array of documents
     docs;
     //
+    // Initial zoom level
+    currentZoom = 1;
+    //
+    // The first page image
+    first_page_image;
+    //
     //
     constructor() {
         super();
@@ -31,6 +37,15 @@ export class mashamba extends view.page {
         //intialize the other pages panel
         this.other_pages = document.getElementById("other_pages");
         //
+        // Create the image element'
+        this.first_page_image = this.document.createElement("img");
+        //
+        // Give the image element an id
+        this.first_page_image.id = "first_image";
+        //
+        // Attach the image to page1
+        this.first_page.appendChild(this.first_page_image);
+        //
         // Attach an event listener for moving to the document
         document.getElementById("nxt_btn").onclick = () => this.move_next();
         //
@@ -39,6 +54,12 @@ export class mashamba extends view.page {
         //
         // Attach an event listener for saving the transcriptions
         document.getElementById("save_data_btn").onclick = () => this.save_data();
+        //
+        // Attach an event listener for zooming in the image.
+        document.getElementById("zoom_in_btn").onclick = () => this.zoom_in();
+        //
+        // Attach an event listener for zooming out the image.
+        //    document.getElementById("zoom_out_btn")!.onclick = () => this.zoom_out();
     }
     //
     //Replace the show pannels method with our own version
@@ -102,17 +123,18 @@ export class mashamba extends view.page {
         // Get url of of the first page
         const url = page.url;
         //
-        // Create the first page image
-        const image1 = document.createElement("img");
-        //
-        // Add a class to the image
-        image1.id = "first_page_image";
-        //
-        // Attach the image to page1
-        this.first_page.appendChild(image1);
-        //
         // Set the url of the page
-        image1.src = `http://localhost${url}`;
+        this.first_page_image.src = `http://localhost${url}`;
+    }
+    //
+    // Helps in zooming in the image 
+    zoom_in() {
+        //
+        // Increments the zoom value
+        this.currentZoom += 0.1;
+        //
+        // Increase the scale of the image by .1 making the image appear larger.
+        this.first_page_image.style.transform = "scale(" + this.currentZoom + ")";
     }
     create_other_page(page) {
         //
@@ -235,18 +257,7 @@ export class mashamba extends view.page {
         //The mandory parameter of the load commom method is one: layput
         [layouts]);
         //
-        // Check if the transcription is saved successful
-        if (result === "Ok") {
-            //
-            // If successful, move to the next document
-            this.move_next();
-            //
-            //
-        }
-        else {
-            //
-            // If not, display an error message
-            alert("Failed to save data. Please try again.");
-        }
+        //Report the result.
+        alert(result);
     }
 }
