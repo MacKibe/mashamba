@@ -1,0 +1,49 @@
+/*
+Let the body fills the whole screen*/
+html, body{ height:100%;}
+
+/*
+The body is divided into a 2x2 matrix*/ 
+body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "filter images"
+    "documents transcription";
+}
+
+/*
+Panel for the search criteria*/
+#filter{ grid-area: filter;}
+
+/*
+Panel for for document page images*/
+#images { 
+    grid-area: images;
+    /*
+    Crop the image if it overfloes*/
+    overflow: hidden;
+}
+
+/*
+Panel for listing all the documents*/
+#documents{
+    grid-area: documents; 
+    overflow-y: scroll;
+}
+
+/*
+Panel for supporting transcriptions*/
+#transcriptions{  
+    grid-area: transcriptions;
+    display:flex;
+}
+
+/*
+The documents and image panels share the same (non adjacent) colors*/
+#images, #documents{background-color: #cedfd9;}
+
+/*
+The filtet and transcription panels share the same (non adjacent) normal colors*/
+#filter, #transcription{ background-color:white;}

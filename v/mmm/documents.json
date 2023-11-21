@@ -1,0 +1,31 @@
+{
+    "id": "COPIES Title - deeds OTHERS/1/MOHAMOOD MOHAMED EMAN/254.2",
+    "images": [
+        {
+            "num": "1",
+            "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img253.jpg",
+            "name": "img253.jpg"
+        },
+        {
+            "num": "2",
+            "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img254.jpg",
+            "name": "img254.jpg"
+        },
+        {
+            "num": "3",
+            "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img255.jpg",
+            "name": "img255.jpg"
+        },
+        {
+            "num": "4",
+            "url": "/mashamba/v/images//COPIES Title - deeds OTHERS/1/img256.jpg",
+            "name": "img256.jpg"
+        }
+    ],
+    "transcrptions": {
+        "id": "COPIES Title - deeds OTHERS/1",
+        "area": "254.2",
+        "regno": "162/2 161/3 161/4 172/3 173/1",
+        "person": "MOHAMOOD MOHAMED EMAN"
+    }
+}
