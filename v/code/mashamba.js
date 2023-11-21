@@ -102,6 +102,9 @@ export class mashamba extends view.page {
         // Get url of of the first page
         const url = page.url;
         //
+        // Local path
+        const path = '/mashamba/images/';
+        //
         // Create the first page image
         const image1 = document.createElement("img");
         //
@@ -112,7 +115,7 @@ export class mashamba extends view.page {
         this.first_page.appendChild(image1);
         //
         // Set the url of the page
-        image1.src = `http://localhost${url}`;
+        image1.src = `http://localhost${path}{url}`;
     }
     create_other_page(page) {
         //
