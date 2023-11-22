@@ -5,7 +5,7 @@ function FilterSection(){
     return(
         <>
             <div className="FilterSection">
-                Filter section
+                <h2>Filter section</h2>
             </div>
         </>
     )

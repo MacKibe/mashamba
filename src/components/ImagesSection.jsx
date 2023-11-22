@@ -5,6 +5,7 @@ function ImagesSection({ images }) {
   return (
     <>
       <div className="image_component">
+        <h2>Document Pages</h2>
         <ul>
           {images.map((image, index) => (
             <li key={index}>

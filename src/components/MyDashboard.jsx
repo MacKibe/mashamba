@@ -1,6 +1,7 @@
 import DocumentsList from "./DocumentsList";
 import TranscriptionsSection from "./TranscriptionsSection";
 import ImagesSection from "./ImagesSection";
+import FilterSection from "./FilterSection";
 import { useState } from "react";
 
 function MyDashboard() {
@@ -62,7 +63,7 @@ function MyDashboard() {
         },
       ],
       transcription: {
-        id: "wqqwqwqwqwqwqwqwqwqwqwqw/1",
+        id: "wqqwqwqwqwqwqwqwqwqwqwqwwqqwqwqwqwqwqwqwqwqwqwqwwqqwqwqwqwqwqwqwqwqwqwqwwqqwqwqwqwqwqwqwqwqwqwqw/1",
         area: "24.2",
         regno: "162/2 161/3 161/4 172/3 173/1",
         person: "MOHA EMAN MOHAMED ",
@@ -145,14 +146,18 @@ function MyDashboard() {
     <>
       <div className="body--section">
         <div className="side-panel">
-          {documents.map((document, index) => (
-            <DocumentsList
-              key={index}
-              document={document}
-              index={index}
-              onClick={handle_click_document}
-            />
-          ))}
+          <FilterSection />
+          <div className="documents--section">
+            <h2>Documents</h2>
+            {documents.map((document, index) => (
+              <DocumentsList
+                key={index}
+                document={document}
+                index={index}
+                onClick={handle_click_document}
+              />
+            ))}
+          </div>
         </div>
         <div className="main--section">
           <div className="main--image_section">

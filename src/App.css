@@ -1,43 +1,53 @@
 /* Resetting CSS; reoving any padding and margin in our elements 
 and also having our element be in border box  */
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 1.5rem;
 }
 /* Header stylings */
 .header-section {
-    background-color: rgb(54, 100, 141);
+  background-color: #cedfd9;
 }
-
-.header-section h1 {
-    text-align: center;
+h2 {
+  text-align: center;
+  text-decoration: underline;
 }
-
 /* Body section styling */
 .body--section {
-    display: flex;
+  display: flex;
 }
 /* Images Section */
 ul {
-    display: flex;
-    overflow-x: scroll;
+  display: flex;
 }
-li{
-    list-style: none;
-    text-align: center;
-    border: 2px solid black;
+li {
+  list-style: none;
+  text-align: center;
 }
 img {
-    width: 70%;
+  width: 89%;
+  border: 2px solid black;
 }
 
 /* Side Panel */
-.DocumentsList {
-    padding: 2%;
+.side-panel {
+  background-color: #b09398;
 }
-.DocumentsList p{
-    background-color: rgb(202, 142, 142);
+.document {
+  padding-block: 1.5%;
 }
-
+.document:active {
+  background-color: #e4cdd0;
+}
+.document:hover {
+  background-color: #e4cdd0;
+  cursor: pointer;
+}
+.documents--section {
+  white-space: nowrap;
+}
 /*  */

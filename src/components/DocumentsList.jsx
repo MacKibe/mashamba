@@ -4,17 +4,17 @@
 
 const DocumentsList = ({ document, index, onClick }) => {
   const handle_click_document = () => {
-    // 
+    //
     // Gives the index of the document.
     onClick(index);
   };
 
   return (
-    <div className="DocumentsList" onClick={handle_click_document}>
-      <p>
+    <div className="document" onClick={handle_click_document}>
+      <a>
         <span>{document.pk}. </span>
         <span>{document.name_of_document}</span>
-      </p>
+      </a>
     </div>
   );
 };
