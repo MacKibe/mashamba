@@ -10,7 +10,7 @@ body {
 }
 /* Header stylings */
 .header-section {
-  background-color: #cedfd9;
+  background-color: #B09398;
 }
 h2 {
   text-align: center;
@@ -19,6 +19,7 @@ h2 {
 /* Body section styling */
 .body--section {
   display: flex;
+  max-height: 90dvh;
 }
 /* Images Section */
 ul {
@@ -35,17 +36,18 @@ img {
 
 /* Side Panel */
 .side-panel {
-  background-color: #b09398;
+  background-color: #EBFCFB;
+  border-right: 2px solid #7c0011;
+  overflow-y: scroll;
+  min-width: 20%;
 }
 .document {
-  padding-block: 1.5%;
-}
-.document:active {
-  background-color: #e4cdd0;
+  padding-block: 3%;
 }
 .document:hover {
-  background-color: #e4cdd0;
+  background-color: #5F5449;
   cursor: pointer;
+  color: #CEDFD9 ;
 }
 .documents--section {
   white-space: nowrap;
