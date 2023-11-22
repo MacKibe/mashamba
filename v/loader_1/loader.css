@@ -1,0 +1,20 @@
+/*
+Let the body ocuupy as much of the available space before scrolling*/
+body{
+    display:flex;
+}
+
+fieldset {
+
+    /* Set the Fieldset to fit the longest line */
+    width: fit-content;
+
+    /* Make the fieldset boundaries faint */
+    border: 1.5px solid rgba(10, 10, 10, 0.357);
+}
+
+/*
+Errors are shown in red*/
+.error{
+    color:red;
+}

@@ -21,45 +21,15 @@ export class mmm extends view {
         //
         //Attach all the documents to the anchor tag
         Idocuments.forEach(Idocument => new doc(Idocument, ul, this.base));
-        //
-        // Get the categories and counts
-        const categories = await this.get_categories();
-        // 
-        // List the categories.
-        // await this.list_categories(categories);
-        console.log(categories);
-    }
-    // Method to retrieve categories
-    async get_categories() {
-        //
-        //Read the triple m cte from teh sql file
-        const mmm_cte = await exec('path', ['/mashamba/v/mmm/mmm.sql', true], 'get_file_contents', []);
-        //
-        //Expand the triple_m cte to formulate the sql for retrieving all the 
-        //documents as a single structure
-        const sql = `
-            ${mmm_cte}
-            select
-                *
-            from
-                list_category`;
-        // 
-        const rows = await exec('database', ['mutall_mashamba'], 'get_sql_data', [sql]);
-        //
-        //dedove the string to an arru of documents       
-        const categories = rows.map(row => JSON.parse(row.categories));
-        // 
-        // List the categories
-        console.log(JSON.stringify(categories));
-        //
-        // Provides the categories
-        return categories;
     }
     //Use the mmm cte to retrieve all the documents in the system
     async get_documents() {
         //
-        //Read the triple m cte from teh sql file
-        const mmm_cte = await exec('path', ['/mashamba/v/mmm/mmm.sql', true], 'get_file_contents', []);
+        //Read the mmm cte from the sql file
+        const mmm_cte = await exec('path', 
+        //
+        //The given path is a file for which a root will be needed.
+        ['/mashamba/v/mmm/title.sql', true, true], 'get_file_contents', []);
         //
         //Expand the triple_m cte to formulate the sql for retrieving all the 
         //documents as a single structure
@@ -68,7 +38,7 @@ export class mmm extends view {
             select
                 json_arrayagg(documents) as documents
             from
-                documents`;
+                result`;
         // 
         //Excecute the sql to get the documents
         const rows = await exec('database', ['mutall_mashamba'], 'get_sql_data', [sql]);
