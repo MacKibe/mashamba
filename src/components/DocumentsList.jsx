@@ -5,7 +5,7 @@
 const DocumentsList = ({ document, index, onClick }) => {
   const handle_click_document = () => {
     //
-    // Gives the index of the document.
+    // Provides the index of the document.
     onClick(index);
   };
 
