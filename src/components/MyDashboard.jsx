@@ -1,7 +1,7 @@
 import DocumentsList from "./DocumentsList";
 import TranscriptionsSection from "./TranscriptionsSection";
 import ImagesSection from "./ImagesSection";
-// import FilterSection from "./FilterSection";
+import FilterSection from "./FilterSection";
 import { useState } from "react";
 
 function MyDashboard() {
@@ -661,9 +661,9 @@ function MyDashboard() {
     <>
       <div className="body--section">
         <div className="side-panel">
-          {/* <FilterSection />  */}
+          <FilterSection /> 
           <div className="documents--section">
-            <h2>Documents</h2>
+            <h2>Documents<span>({documents.length})</span></h2>
             {documents.map((document, index) => (
               <DocumentsList
                 // 

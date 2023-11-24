@@ -11,10 +11,15 @@ body {
 /* Header stylings */
 .header-section {
   background-color: #B09398;
+  display: flex;
+  align-items: center;
+  gap: 20%;
 }
-h2 {
-  text-align: center;
-  text-decoration: underline;
+h2{
+  margin-block: .5%;
+}
+h2 span {
+  color: #ca5d5d;
 }
 /* Body section styling */
 .body--section {
@@ -39,7 +44,11 @@ img {
   background-color: #EBFCFB;
   border-right: 2px solid #7c0011;
   overflow-y: scroll;
+  overflow-x: hidden;
   min-width: 20%;
+}
+form {
+  text-align: center;
 }
 .document {
   padding-block: 3%;
