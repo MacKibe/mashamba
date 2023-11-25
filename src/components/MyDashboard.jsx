@@ -671,8 +671,11 @@ function MyDashboard() {
                 // this is for better identification of the items.
                 key={index}
                 // 
-                // Send my document data to my component.
-                document={document}
+                // Send my document name data to my component.
+                name_of_document={document.name_of_document}
+                // 
+                // Send my document name data to my component.
+                pk={document.pk}
                 // 
                 // This is index of a document item inside the document object array
                 index={index}

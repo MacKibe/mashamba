@@ -43,8 +43,6 @@ img {
 .side-panel {
   background-color: #EBFCFB;
   border-right: 2px solid #7c0011;
-  overflow-y: scroll;
-  overflow-x: hidden;
   min-width: 20%;
 }
 form {
@@ -60,5 +58,7 @@ form {
 }
 .documents--section {
   white-space: nowrap;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 /*  */

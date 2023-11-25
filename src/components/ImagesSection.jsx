@@ -1,7 +1,7 @@
 //
 //
 
-function ImagesSection({ images }) {
+function ImagesSection({images}) {
   return (
     <>
       <div className="image_component">

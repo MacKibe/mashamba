@@ -2,7 +2,7 @@
 // Contains the documents from my Mashamba database
 // import { useState } from "react";
 
-const DocumentsList = ({ document, index, onClick }) => {
+const DocumentsList = ( props, index, onClick ) => {
   const handle_click_document = () => {
     //
     // Provides the index of the document.
@@ -12,8 +12,8 @@ const DocumentsList = ({ document, index, onClick }) => {
   return (
     <div className="document" onClick={handle_click_document}>
       <a>
-        <span>{document.pk}. </span>
-        <span>{document.name_of_document}</span>
+        <span>{props.pk}. </span>
+        <span>{props.name_of_document}</span>
       </a>
     </div>
   );
