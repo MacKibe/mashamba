@@ -14,5 +14,6 @@ from image
     left join category on document.category = category.category
 WHERE title.id
     is not null
+    AND document.category = 19
 group by
     document.document;
