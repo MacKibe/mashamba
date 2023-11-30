@@ -84,7 +84,7 @@ export class mmm extends view{
         //Return the documents
         return documents    
     }
-}   
+}
 
 //N.B. Document is a reserved word 
 class doc extends view{
