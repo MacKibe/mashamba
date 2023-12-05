@@ -13,7 +13,7 @@ function MyDashboard() {
             try {
                 // Retrieve documents using the imported function
                 const fetchedDocuments = await getDocuments();
-                console.log('Fetched documents:', fetchedDocuments);
+                // console.log('Fetched documents:', fetchedDocuments);
 
                 // Update state with the retrieved documents
                 setDocs(fetchedDocuments);
