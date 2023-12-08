@@ -12,8 +12,8 @@ const DocumentsList = ( props, index, onClick ) => {
   return (
     <div className="document" onClick={handle_click_document}>
       <a>
-        <span>{props.pk}. </span>
-        <span>{props.name_of_document}</span>
+        <span>{props.pk}</span>
+        <span>{props.doc_name}</span>
       </a>
     </div>
   );

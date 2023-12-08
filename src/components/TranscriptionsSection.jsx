@@ -1,15 +1,16 @@
-const TranscriptionsSection = ({transcriptions}) => {
-    return(
-        <>
-            <div className="TranscriptionsSection">
-                <h2>Document Details.</h2>
-                <p>id: {transcriptions.id}</p>
-                <p>area: {transcriptions.area}</p>
-                <p>regno: {transcriptions.regno}</p>
-                <p>person: {transcriptions.person}</p>
-            </div>
-        </>
-    )
-}
+const TranscriptionsSection = ({ transcriptions }) => {
+  return (
+    <>
+      <div className="TranscriptionsSection">
+        <h2>Document Details.</h2>
+        <p>Id: {transcriptions.id}</p>
+        <p>Area: {transcriptions.area}</p>
+        <p>Regno: {transcriptions.regno}</p>
+        <p>Person: {transcriptions.person}</p>
+        <p>Category: {transcriptions.category}</p>
+      </div>
+    </>
+  );
+};
 
-export default TranscriptionsSection
+export default TranscriptionsSection;
