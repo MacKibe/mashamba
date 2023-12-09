@@ -9,7 +9,7 @@ function MyDashboard() {
   //
   // I want the first document to be shown when I visit the page before any selection is done.
   const [selected_document_index, set_new_selected_document_index] =
-    useState(0);
+    useState(null);
 
   //
   // Update the index when a document is clicked/selected
@@ -37,10 +37,10 @@ function MyDashboard() {
                 doc_name={document.id}
                 //
                 // This is index of a document item inside the document object array
-                index={index}
+                doc_index={index}
                 //
                 // This is event listener.
-                onClick={handle_click_document}
+                onClick={() => handle_click_document(index)}
               />
             ))}
           </div>
