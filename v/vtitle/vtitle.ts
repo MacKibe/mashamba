@@ -7,29 +7,15 @@ import { fuel } from "../../../schema/v/code/schema.js";
 //
 //
 import { view } from "../../../outlook/v/code/view.js";
-////
-//// numeric value for prirmary keys
-type pk = number;
-////
-//// Will contain all the data for our system.
-// type vtitles = Array<vtitle>;
-////
-//// Conatins the title details for our table section
-//type vtitle2 = {
-//  id: string;
-//  stitle: docs;
-//  mutation: docs;
-//  others: docs;
-//};
-type vtitle = {
-  id: string;
-  docs: { [category: string]: docs };
-};
 //
-type docs = {
-  count: number;
-  list: Array<doc>;
-};
+// numeric value for prirmary keys
+type pk = number;
+//
+// Will contain all the data for our system.
+type vtitles = { [id: string]: vtitle };
+//
+//
+type vtitle = { [category: string]: Array<doc> };
 //
 // Contains the documents pages and transcriptions
 type doc = {
@@ -45,7 +31,7 @@ type page = {
   num: number;
 };
 //
-// The details for a document.a
+// The details for a transcription.
 type transcription = {
   id: string;
   category: string;
@@ -54,7 +40,8 @@ type transcription = {
   area: number;
   person: string;
 };
-
+//
+//
 const rows: Array<fuel> = await server.exec(
   "database",
   ["mutall_mashamba", false],
@@ -68,34 +55,29 @@ const row: fuel = rows[0];
 const value: string = String(row.vtitle);
 //
 // Convert the string to an array
-const vtitles: vtitle = JSON.parse(value);
+const vtitles: vtitles = JSON.parse(value);
 
 class mashamba extends view {
   constructor() {
     super();
   }
   //
-  // Display the vtitle ids in a table.
-  display(data: vtitle): void {
-    // Get the table body element
-    const tbody: HTMLElement = this.get_element("vtitles");
-
-    // Iterate through vtitles and populate the table with vtitle IDs
-    Object.keys(data).forEach((vtitle) => {
-      // Create a new row
-      const row = document.createElement("tr");
-
-      // Add row to tbody element
-      const addRow = tbody.appendChild(row);
-
-      // Add a cell to the row for the vtitle ID
-      const idCell = addRow.insertCell(0);
-
-      // Populate the cell with the vtitle ID
-      idCell.textContent = vtitle.id;
-    });
+  // Display the vtitles in a table.
+  public display(data: vtitles): void {
+    //
+    // Let ts be the virtual titles
+    const ts: { [key: string]: vtitle } = data;
+    //
+    // Use a for in loop to visit all the virtual titles.
+    for (let key in ts) {
+      //
+      // Let t be a virtual title
+      const t: vtitle = ts[key];
+      //
+      // Desctructure
+      console.log(t);
+    }
   }
 }
 
-// Assuming you have a table with id="vtitles" in your HTML.
-new mashamba().display(vtitles.vtitle);
+new mashamba().display(vtitles);

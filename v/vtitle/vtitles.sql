@@ -145,11 +145,14 @@ docs as (
 vtitle as (
     select
         id,
-      json_object('category', category, 'docs', docs) as vtitle
+      json_objectagg(category,docs) as vtitle
     from
         docs
+    group by id
 )
-
+/*
+    type vtitles = {[id: string]: vtitle}
+*/
 select
     json_objectagg(id,vtitle) as vtitle
 from 
