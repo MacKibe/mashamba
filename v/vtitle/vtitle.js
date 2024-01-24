@@ -11,8 +11,8 @@ const rows = await server.exec("database", ["mutall_mashamba", false], "get_sql_
 const row = rows[0];
 //
 // Get the vtitle property of the row
-const value = String(row.vtitle);
-//
+const value = String(row.vtitles);
+//a
 // Convert the string to an array
 const vtitles = JSON.parse(value);
 class mashamba extends view {
@@ -23,18 +23,28 @@ class mashamba extends view {
     // Display the vtitles in a table.
     display(data) {
         //
-        // Let ts be the virtual titles
-        const ts = data;
+        // Get the table body to display the data
+        const tbody = this.get_element("table_body");
         //
-        // Use a for in loop to visit all the virtual titles.
-        for (let key in ts) {
-            //
-            // Let t be a virtual title
-            const t = ts[key];
-            //
-            // Desctructure
-            console.log(t);
-        }
+        // Get the table head
+        const thead = this.get_element("table_head");
+        //
+        // Get the number of elements in the table head to populate the td for the new rows.
+        const number_of_tds = thead.getElementsByTagName("th").length;
+        //
+        // Create a new tr to appen to the tbody
+        const new_row = document.createElement("tr");
+        //
+        // Create td to append the data
+        const new_cell = document.createElement("td");
+        //
+        //
+        console.log(number_of_tds);
+        //
+        // Loop through each vtitle and append id to the td.
+        // data.forEach((vtitle) => {
+        //   console.log(vtitle);
+        // });
     }
 }
 new mashamba().display(vtitles);

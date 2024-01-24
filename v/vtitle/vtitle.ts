@@ -12,10 +12,19 @@ import { view } from "../../../outlook/v/code/view.js";
 type pk = number;
 //
 // Will contain all the data for our system.
-type vtitles = { [id: string]: vtitle };
+type vtitles = Array<vtitle>;
 //
 //
-type vtitle = { [category: string]: Array<doc> };
+type vtitle = {
+  id: string;
+  docs: { [category: string]: docs };
+};
+
+type docs = {
+  id: string;
+  category: string;
+  docs: Array<doc>;
+};
 //
 // Contains the documents pages and transcriptions
 type doc = {
@@ -30,10 +39,13 @@ type page = {
   url: string;
   num: number;
 };
+
+type pages = Array<page>;
+
 //
 // The details for a transcription.
 type transcription = {
-  id: string;
+  title_id: string;
   category: string;
   folder: string;
   regno: number;
@@ -52,8 +64,8 @@ const rows: Array<fuel> = await server.exec(
 const row: fuel = rows[0];
 //
 // Get the vtitle property of the row
-const value: string = String(row.vtitle);
-//
+const value: string = String(row.vtitles);
+//a
 // Convert the string to an array
 const vtitles: vtitles = JSON.parse(value);
 
@@ -65,18 +77,32 @@ class mashamba extends view {
   // Display the vtitles in a table.
   public display(data: vtitles): void {
     //
-    // Let ts be the virtual titles
-    const ts: { [key: string]: vtitle } = data;
+    // Get the table body to display the data
+    const tbody: HTMLElement = this.get_element("table_body");
     //
-    // Use a for in loop to visit all the virtual titles.
-    for (let key in ts) {
-      //
-      // Let t be a virtual title
-      const t: vtitle = ts[key];
-      //
-      // Desctructure
-      console.log(t);
-    }
+    // Get the table head
+    const thead: HTMLElement = this.get_element("table_head");
+    //
+    // Get the number of elements in the table head to populate the td for the new rows.
+    const number_of_tds = thead.getElementsByTagName("th").length;
+    //
+    // Create a new tr to appen to the tbody
+    const new_row: HTMLElement = document.createElement("tr");
+    //
+    // Create td to append the data
+    const new_cell: HTMLElement = document.createElement("td");
+    // 
+    // Append data to the cells
+    // Destructure the vtitles 
+    const {id,docs} = data
+    // 
+    // Append the cells to the tr
+    //
+    // Append the tr to the tbody
+    tbody.appendChild(new_row);
+    // 
+    //  
+    
   }
 }
 

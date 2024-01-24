@@ -1,6 +1,15 @@
 with
 /*
-    First gather transcription data from the document table */
+First gather transcription data from the document table
+type transcript = {
+  title_id: string;
+  category: string;
+  folder: string;
+  regno: number;
+  area: number;
+  person: string;
+};
+*/
 transcript as (
     select
         document,
@@ -18,8 +27,8 @@ transcript as (
         inner join folder on document.folder = folder.folder
 ),
 /*
-    Page cte to group images in documents that have image pages into an object for each document.
-    The structure of page is defined as:
+Page cte to group images in documents that have image pages into an object for each document.
+The structure of page is defined as:
 type page = {
   page: pk;
   url: string;
@@ -30,6 +39,7 @@ page as (
     select
         document,
         json_object(
+            "page", image.image,
             'num', image.page, 
             'url', image.url
         ) as page
@@ -40,7 +50,7 @@ page as (
     Then organize the images in an object structure.
     type pages = {
         document:pk;
-        pages:Array<page>;
+        list:Array<page>;
     }
 */
 pages as (
@@ -65,21 +75,20 @@ doc as (
     select
        document.document,
        json_object(
+            'document', document.document,
            'pages', pages.pages,
            'transcriptions', transcript.transcript
        ) as doc
     from
         document
-	left join 
-            pages on pages.document = document.document
-	left join 
-            transcript on transcript.document = document.document
+	left join pages on pages.document = document.document
+	left join transcript on transcript.document = document.document
 ),
 
 /*
 Prepare data about all documents including their titles and categories.
-type all_docs = {
-    document: pk,
+type raw_docs = {
+    doc: pk,
     id:string,
     category:string
 }
@@ -104,36 +113,16 @@ type docs = {
     docs:Array<doc>,
 }
 */
-agg_docs as (
+docs as (
     select
         id,
         category,
-        count(doc) as count,
-        json_arrayagg(raw_docs.doc) as list
+        json_arrayagg(raw_docs.doc) as docs
     from
         raw_docs
     group by 
         id,
         category
-),
-/*
-    Structure the aggregated documents with counts and lists.
-    type docs = {
-        id: string,
-        category: string,
-        docs: Array<doc>,
-    }
-*/
-docs as (
-    select
-        id,
-        category,
-        json_object(
-            'count', count,
-            'list', list
-        ) as docs
-    from 
-        agg_docs
 ),
 /*
     Create a structure with title information and associated documents.
@@ -145,15 +134,15 @@ docs as (
 vtitle as (
     select
         id,
-      json_objectagg(category,docs) as vtitle
+      json_objectagg(category,docs) as docs
     from
         docs
     group by id
+),
+vtitles as (
+    select
+        json_arrayagg(json_object("id",id,"docs",docs)) as vtitles
+    from 
+        vtitle
 )
-/*
-    type vtitles = {[id: string]: vtitle}
-*/
-select
-    json_objectagg(id,vtitle) as vtitle
-from 
-    vtitle;
+select * from vtitles
