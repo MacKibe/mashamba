@@ -26,12 +26,6 @@ class mashamba extends view {
         // Get the table body to display the data
         const tbody = this.get_element("table_body");
         //
-        // Get the table head
-        const thead = this.get_element("table_head");
-        //
-        // Get the number of elements in the table head to populate the td for the new rows.
-        const number_of_tds = thead.getElementsByTagName("th").length;
-        //
         // Display the vtitle in the new rows
         data.forEach((vtitle) => {
             //
@@ -71,6 +65,15 @@ class mashamba extends view {
             new_others_cell.textContent = `${other_docs.length}`;
             new_title_deed_cell.textContent = `${mutation_docs.length}`;
             //
+            // Call coloring funtion to the mutation cell
+            this.colorCell(new_mutation_cell);
+            //
+            // Call coloring funtion to the other cell
+            this.colorCell(new_others_cell);
+            //
+            // Call coloring funtion to the title deed cell
+            this.colorCell(new_title_deed_cell);
+            //
             // Append the cells to the tr
             new_row.appendChild(new_cell);
             new_row.appendChild(new_title_deed_cell);
@@ -80,11 +83,41 @@ class mashamba extends view {
             // Append the tr to the tbody
             tbody.appendChild(new_row);
             //
+            // Check if there are vtitles with both titledeeds and mutations
+            if (this.countCells(new_title_deed_cell, 1) +
+                this.countCells(new_mutation_cell, 1) +
+                this.countCells(new_others_cell, 1) >=
+                2) {
+                // Add a class name "good" to the row
+                new_row.classList.add("good");
+            }
+            //
             // For testing
             console.log(vtitle.docs);
         });
+    }
+    //
+    // Coloring the data sets
+    colorCell(cell) {
         //
-        // Add cells to tht tr.
+        // Get the value of the tds
+        // Convert the value to a interger first
+        const cell_content = parseInt(cell.textContent || "0", 10);
+        //
+        // Give class names to the td with different data values
+        if (cell_content === 1) {
+            cell.classList.add("one");
+        }
+        else if (cell_content < 1) {
+            cell.classList.add("zero");
+        }
+        else {
+            cell.classList.add("plus_one");
+        }
+    }
+    countCells(cell, targetValue) {
+        const cellContent = parseInt(cell.textContent || "0", 10);
+        return cellContent === targetValue ? 1 : 0;
     }
 }
 new mashamba().display(vtitles);

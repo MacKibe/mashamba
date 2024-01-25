@@ -4,18 +4,7 @@
     <title>Vtitle</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      table,
-      tr,
-      td,
-      th {
-        border: 1px solid black;
-        border-collapse: collapse;
-      }
-      thead {
-        background-color: aliceblue;
-      }
-    </style>
+    <link rel="stylesheet" href="vtitle.css" />
     <script type="module" src="./vtitle.js">
       //
       // Import the class that carries our code, from vtitle.js file
@@ -23,13 +12,13 @@
     </script>
   </head>
   <body>
-    <table id="resultTable">
-      <thead id="table_head">
+    <table>
+      <thead>
         <tr>
-          <th id="row_category">Title Id.</th>
-          <th id="row_category">Title Deed</th>
-          <th id="row_category">Mutation</th>
-          <th id="row_category">Others</th>
+          <th>Title Id.</th>
+          <th>Title Deed</th>
+          <th>Mutation</th>
+          <th>Others</th>
         </tr>
       </thead>
       <tbody id="table_body"></tbody>
